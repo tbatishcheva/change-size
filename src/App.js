@@ -1,24 +1,48 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      heightsize: 50,
+      widthsize: 150,
+    };
+  }
+
+  handleClickbig = () => {
+    const { heightsize, widthsize } = this.state;
+    this.setState({
+      heightsize: heightsize + 10,
+      widthsize: widthsize + 10,
+    });
+  };
+
+  handleClicksmall = () => {
+    const { heightsize, widthsize } = this.state;
+    this.setState({
+      heightsize: heightsize - 10,
+      widthsize: widthsize - 10,
+    });
+  };
+
   render() {
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
+          <div
+            className="change-size"
+            style={{
+              height: this.state.heightsize,
+              width: this.state.widthsize,
+            }}
           >
-            Learn React
-          </a>
+Hello World!
+
+          </div>
+          <button onClick={this.handleClickbig}> + </button>
+          <button onClick={this.handleClicksmall}> - </button>
         </header>
       </div>
     );

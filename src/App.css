@@ -30,3 +30,10 @@
     transform: rotate(360deg);
   }
 }
+
+.change-size {
+  text-align: center;
+  background-color: red;
+  height: 50px;
+  width: 150px;
+}
