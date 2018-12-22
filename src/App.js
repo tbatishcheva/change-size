@@ -20,7 +20,6 @@ class App extends Component {
     });
   };
 
-
   render() {
     return (
       <div className="App">
@@ -33,7 +32,6 @@ class App extends Component {
             }}
           >
 Hello World!
-
           </div>
           <button onClick={() => this.handleClick(10)}> + </button>
           <button onClick={() => this.handleClick(-10)}> - </button>
