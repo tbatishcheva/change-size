@@ -6,26 +6,20 @@ class App extends Component {
     super(props);
 
     this.state = {
-      heightsize: 50,
-      widthsize: 150,
+      size: 50,
     };
   }
 
-  handleClickbig = () => {
-    const { heightsize, widthsize } = this.state;
+  handleClick = (value) => {
+    const size = this.state.size + value;
+    if (size < 0) {
+      return;
+    }
     this.setState({
-      heightsize: heightsize + 10,
-      widthsize: widthsize + 10,
+      size,
     });
   };
 
-  handleClicksmall = () => {
-    const { heightsize, widthsize } = this.state;
-    this.setState({
-      heightsize: heightsize - 10,
-      widthsize: widthsize - 10,
-    });
-  };
 
   render() {
     return (
@@ -34,15 +28,15 @@ class App extends Component {
           <div
             className="change-size"
             style={{
-              height: this.state.heightsize,
-              width: this.state.widthsize,
+              height: this.state.size,
+              width: this.state.size,
             }}
           >
 Hello World!
 
           </div>
-          <button onClick={this.handleClickbig}> + </button>
-          <button onClick={this.handleClicksmall}> - </button>
+          <button onClick={() => this.handleClick(10)}> + </button>
+          <button onClick={() => this.handleClick(-10)}> - </button>
         </header>
       </div>
     );
